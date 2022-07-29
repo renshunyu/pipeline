@@ -19,7 +19,15 @@ properties([
                                  classpath: [],
                                  sandbox: false,
                                  script:
-                                         'return["Dev","QA","Stage","Prod"]'
+                                         'import groovy.json.JsonSlurper\n' +
+                                                 'def file = "curl -k --header Private-Token:GwgsycKBwVdNzMPgdjZF -H Host:gitlab.tsingj.local https://192.168.200.230/api/v4/projects/625/repository/branches".execute()\n' +
+                                                 '\n' +
+                                                 'def jsonSlurper = new JsonSlurper()\n' +
+                                                 'def object = jsonSlurper.parseText(file.text)\n' +
+                                                 '\n' +
+                                                 'def list  =[]\n' +
+                                                 'object.each {li->if(li.name!="master"){list.add(li.name)}else{list.add(li.name+":selected")}}\n' +
+                                                 'return list'
                          ]
                  ]
                 ],
