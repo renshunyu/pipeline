@@ -1,0 +1,22 @@
+pipeline{
+    agent any
+    stages{
+        stage('部署'){
+            agent any
+            steps {
+                echo "功能未实现"
+                sh """ls /"""
+            }
+        }
+        stage('冒烟测试'){
+            steps {
+                echo "功能未实现"
+            }
+        }
+        stage('功能测试'){
+            steps {
+                echo "功能未实现"
+            }
+        }
+    }
+}
