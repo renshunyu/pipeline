@@ -36,7 +36,7 @@ properties([
                  description: 'Select the Env Name from the Dropdown List',
                  filterLength: 1,
                  filterable: true,
-                 name: 'Env',
+                 name: 'En',
                  randomName: 'choice-parameter-5631314439613978',
                  script: [
                          $class: 'GroovyScript',
@@ -61,7 +61,7 @@ properties([
                  filterable: true,
                  name: 'Server',
                  randomName: 'choice-parameter-5631314456178619',
-                 referencedParameters: 'Env',
+                 referencedParameters: 'En',
                  script: [
                          $class: 'GroovyScript',
                          fallbackScript: [
@@ -74,16 +74,16 @@ properties([
                                  classpath: [],
                                  sandbox: false,
                                  script:
-                                         ''' if (Env.equals("Dev")){
+                                         ''' if (En.equals("Dev")){
                                 return["devaaa001","devaaa002","devbbb001","devbbb002","devccc001","devccc002"]
                             }
-                            else if(Env.equals("QA")){
+                            else if(En.equals("QA")){
                                 return["qaaaa001","qabbb002","qaccc003"]
                             }
-                            else if(Env.equals("Stage")){
+                            else if(En.equals("Stage")){
                                 return["staaa001","stbbb002","stccc003"]
                             }
-                            else if(Env.equals("Prod")){
+                            else if(En.equals("Prod")){
                                 return["praaa001","prbbb002","prccc003"]
                             }
                         '''
@@ -105,7 +105,7 @@ pipeline{
             steps {
                 echo "功能未实现"
                 echo "Branch:${Branch}"
-                echo "Env:${Env}"
+                echo "En:${En}"
                 echo "Server:${Server}"
                 echo "DEPLOY_TYPE:${DEPLOY_TYPE}"
                 sh """ls /"""
