@@ -95,6 +95,10 @@ properties([
 
 pipeline{
     agent any
+    parameters{
+        choice(name: 'DEPLOY_TYPE',choices: ['','重新部署','全部更新','operator-contract','ds-console','ds-ui'], description: '请选择部署方式,重新部署:整体重部,全部更新:前后端都更新,其余是单个更新')
+        // choice(name: 'VERSION', choices: ['当前','master','1.2.0','1.1.0','1.0.0'], description: '请选择版本')
+    }
     stages{
         stage('部署'){
             agent any
