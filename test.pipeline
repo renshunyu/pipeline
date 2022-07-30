@@ -104,6 +104,10 @@ pipeline{
             agent any
             steps {
                 echo "功能未实现"
+                echo "Branch:${Branch}"
+                echo "Env:${Env}"
+                echo "Server:${Server}"
+                echo "DEPLOY_TYPE:${DEPLOY_TYPE}"
                 sh """ls /"""
             }
         }
