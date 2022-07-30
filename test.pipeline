@@ -108,6 +108,7 @@ pipeline{
                 echo "En:${En}"
                 echo "Server:${Server}"
                 echo "DEPLOY_TYPE:${DEPLOY_TYPE}"
+                echo "Env:${Env}"
                 sh """ls /"""
             }
         }
